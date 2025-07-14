@@ -23,7 +23,7 @@ function SignUp() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["registering_users"],
     mutationFn: async (newUser: User) => {
-      const response = await axios.post("http://localhost:5454/auth/register", newUser);
+      const response = await axios.post("https://blog-it-website-mapa.vercel.app/auth/register", newUser);
       return response.data;
     },
     onError: (err) => {
