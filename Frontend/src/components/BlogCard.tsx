@@ -8,7 +8,24 @@ import {
     Stack,
   } from "@mui/material";
   import { Link } from "react-router-dom";
-  
+
+type Blog = {
+  id: string;
+  title: string;
+  synopsis: string;
+  featuredImg?: string;
+  dateCreated?: string;
+  createdAt?: string;
+  author: {
+    firstName: string;
+    lastName: string;
+  };
+};
+
+interface BlogCardProps {
+  blog: Blog;
+}
+
  function BlogCard({ blog }) {
     const initials =
       blog.author?.firstName?.[0]?.toUpperCase() +
