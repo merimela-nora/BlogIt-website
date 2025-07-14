@@ -12,12 +12,11 @@ import {
 } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import useUser from "../hooks/UseUser";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Profile() {
   const user = useUser();
-  const navigate = useNavigate();
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
