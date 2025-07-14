@@ -19,9 +19,6 @@ function Header() {
             <Stack direction="row"  spacing={8} justifyContent={'center'}>
           <Button color="inherit" component={Link} to="/"> Home
           </Button>
-          <Button color="inherit" component={Link} to="/blogs">
-          Blogs
-          </Button>
           <Button color="inherit"  component={Link} to="/login">
             Login
           </Button>

@@ -16,6 +16,24 @@ model User {
   password   String   @map("password")
   isDeleted  Boolean  @default(false)
   DateJoined DateTime @default(now()) @map("date_joined")
+  blogs      Blog[]
 
   @@map("users")
+}
+
+
+model Blog {
+  id          String   @id @default(uuid()) @map("blog_id")
+  title       String   @map("blog_title")  @default("Untitled")
+  synopsis    String   @map("synopsis")
+  content     String   @map("content")
+  featuredImg String   @map("image")
+  dateCreated DateTime @default(now())
+  lastUpdated DateTime @updatedAt
+  isDeleted   Boolean  @default(false)
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  @@map("blogs")
 }
