@@ -33,7 +33,7 @@ function Blogs() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:5454/blogs");
+        const res = await axios.get("https://blog-it-website-mapa.vercel.app/blogs");
         setBlogs(res.data);
       } catch (error) {
         console.error("Failed to fetch blogs:", error);
