@@ -45,11 +45,11 @@ function Profile() {
     }
   }, [user]);
 
-  const handleInfoChange = (e) => {
+  const handleInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (ee: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
