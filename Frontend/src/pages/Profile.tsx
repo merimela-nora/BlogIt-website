@@ -17,6 +17,7 @@ import axios from "axios";
 function Profile() {
   const user = useUser();
   
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -48,7 +49,7 @@ function Profile() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handlePasswordChange = (ee: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
