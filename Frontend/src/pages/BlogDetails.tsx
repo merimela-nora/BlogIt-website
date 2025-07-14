@@ -29,7 +29,7 @@ function BlogDetail() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5454/blogs/${id}`);
+        const res = await axios.get(`https://blogit-website-5.onrender.com/blogs/${id}`);
         setBlog(res.data);
       } catch (error) {
         console.error("Error fetching blog:", error);
