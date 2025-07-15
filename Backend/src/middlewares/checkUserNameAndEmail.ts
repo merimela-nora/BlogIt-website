@@ -9,21 +9,34 @@ async function CheckUserNameAndEmail(
   next: NextFunction,
 ) {
   const { username, email } = req.body;
-  const userFirst = await client.user.findFirst({ where: { username } });
 
-  if (userFirst) {
-    res.status(400).json({ message: "username already in use" });
-    return;
+  console.log(" Checking username and email uniqueness:", { username, email });
+
+  try {
+    const [userFirst, emailFirst] = await Promise.all([
+      client.user.findFirst({ where: { username } }),
+      client.user.findFirst({ where: { email } }),
+    ]);
+
+    if (userFirst) {
+      console.log("Username already in use:", username);
+      return res.status(400).json({ message: "username already in use" });
+    }
+
+    if (emailFirst) {
+      console.log(" Email already in use:", email);
+      return res.status(400).json({ message: "email address already in use" });
+    }
+
+    console.log(" Username and email are unique");
+    next();
+  } catch (err) {
+    console.error(" Error in CheckUserNameAndEmail:", err);
+    return res.status(500).json({
+      message: "Internal error in CheckUserNameAndEmail",
+      error: err instanceof Error ? err.message : String(err),
+    });
   }
-
-  const emailFirst = await client.user.findFirst({ where: { email } });
-
-  if (emailFirst) {
-    res.status(400).json({ message: "email address already in use" });
-    return;
-  }
-
-  next();
 }
 
 export default CheckUserNameAndEmail;
