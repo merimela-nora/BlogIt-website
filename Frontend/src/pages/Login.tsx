@@ -26,7 +26,7 @@ function Login() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["login_users"],
     mutationFn: async (loginDetails: LoginDetails) => {
-      const response = await axiosInstance.post("https://blogit-website-5.onrender.com/auth/login", loginDetails);
+      const response = await axiosInstance.post("https://blogit-website-5.onrender.com/login", loginDetails);
       return response.data;
     },
     onError: (err) => {
