@@ -23,7 +23,7 @@ function SignUp() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["registering_users"],
     mutationFn: async (newUser: User) => {
-      const response = await axios.post("https://blogit-website-5.onrender.com/register", newUser);
+      const response = await axios.post("https://blogit-website-5.onrender.com/auth/register", newUser);
       return response.data;
     },
     onError: (err) => {
