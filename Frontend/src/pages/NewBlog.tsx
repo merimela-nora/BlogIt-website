@@ -52,7 +52,7 @@ function NewBlog() {
     formData.append("image", selectedFile); 
 
     try {
-      const response = await axios.post("http://localhost:5454/blogs", formData, {
+      const response = await axios.post("https://blogit-website-5.onrender.com/blogs", formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
