@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "", 
+    origin: "https://blogit-website-6.onrender.com", 
     credentials: true,               
     methods: ["POST", "DELETE", "GET", "PUT", "PATCH"],
   })
